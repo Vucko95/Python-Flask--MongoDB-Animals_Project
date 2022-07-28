@@ -1,0 +1,6 @@
+- name: DB Playbook
+  import_playbook: ./database.yaml
+- name: Frontend Playbook
+  import_playbook: ./backend.yaml
+- name: Backend Playbook
+  import_playbook: ./frontend.yaml
