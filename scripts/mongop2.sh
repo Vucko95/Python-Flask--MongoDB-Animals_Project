@@ -26,8 +26,8 @@ mongo admin --eval 'db.createUser(
 
   ## EDIT /etc/mongd.conf 
   ##  ADD
-#   security:
-    # authorization: "enabled"
+  security:
+    authorization: "enabled"
 
 # REPLACE IP SO ONLY APP VM CAN ACCESS MONGODB
 
