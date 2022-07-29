@@ -32,3 +32,4 @@ mongo admin --eval 'db.createUser(
 # REPLACE IP SO ONLY APP VM CAN ACCESS MONGODB
 
 sed -i 's/127.0.0.1/192.168.6.1/g' /etc/mongod.conf
+sed -i 's/192.168.6.1/0.0.0.0/g' /etc/mongod.conf
