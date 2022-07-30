@@ -33,3 +33,9 @@
     - name: Change Mongo.conf IP
       command: sudo sed -i 's/127.0.0.1/0.0.0.0/g' /etc/mongod.conf
 
+    - name: Install Python
+      yum:
+        name: python3-pip
+        state: latest
+    - name: Python Libraries
+      shell: sudo pip3 install -r /tmp/db/requirements.txt
