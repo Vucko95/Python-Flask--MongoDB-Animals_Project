@@ -1,0 +1,14 @@
+[Unit]
+Description=animal
+
+[Service]
+User=vagrant
+Group=vagrant
+Type=simple
+WorkingDirectory=/tmp/app/
+ExecStart=/tmp/app/flash.sh
+EnvironmentFile=/tmp/app/animal.env
+Restart=always
+RestartSec=5s
+[Install]
+WantedBy=multi-user.target
