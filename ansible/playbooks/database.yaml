@@ -1,0 +1,35 @@
+---
+- name: Install MongoDB
+  hosts: db
+  become: true
+
+  tasks:
+    - name: Copy MongoDB package Info
+      copy:
+        src: /etc/ansible/mongodb.repo
+        dest: /etc/yum.repos.d/mongodb.repo
+    - name: Install MongoDB
+      yum:
+        name: mongodb-org
+        state: present
+    - name: Enable and Start MongoDB Systemd
+      service:
+        name: mongod
+        state: started
+        enabled: yes
+    - name: Drop User if exsists
+      command:  mongo admin --eval 'db.dropUser("superadmin")'
+    - name: Create User
+      shell: | 
+        mongo admin --eval 'db.createUser(
+        {
+          user: "superadmin",
+          pwd: "password",
+          roles: [ "root" ]
+        }
+        )'
+      register: out
+    - debug: var=out.stdout_lines
+    - name: Change Mongo.conf IP
+      command: sudo sed -i 's/127.0.0.1/0.0.0.0/g' /etc/mongod.conf
+

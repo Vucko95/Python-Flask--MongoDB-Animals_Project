@@ -13,3 +13,4 @@ sudo yum install -y mongodb-org
 # https://www.liquidweb.com/kb/how-to-install-mongodb-on-centos-7/
 ## LOG FILE LOCATION
 # /var/log/mongodb/mongod.log
+    

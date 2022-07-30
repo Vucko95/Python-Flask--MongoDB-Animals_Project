@@ -1,0 +1,14 @@
+---
+- name: Installing APP SETUP
+  hosts: app
+  become: true
+
+  tasks:
+    - name: Install Python
+      yum:
+        name: python3
+        state: latest
+    - name: Python Libraries
+      shell: sudo pip3 install -r /tmp/app/requirements.txt
+      register: out
+    - debug: var=out.stdout_lines
