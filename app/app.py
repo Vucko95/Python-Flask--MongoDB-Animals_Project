@@ -20,13 +20,8 @@ def index():
 
 
 if __name__ == '__main__':
-    app.run(debug=True)
-
-
-# @app.route('/')
-# def index():
-#     saved_todos = todos.find()
-#     return render_template('index.html', todos=saved_todos)
+    # app.run(debug=True)
+    app.run(host='0.0.0.0', debug=True)
 
 
 # @app.route('/add', methods=['POST'])

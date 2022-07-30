@@ -76,7 +76,7 @@ $env:FLASK_ENV = "development"
 Run the APP
 
 ```
-python -m flask run
+flask run
 ```
 
 Flask will run website at `127.0.0.1:5000`, from here user can submit data to MongoDB via Post requests.
@@ -94,6 +94,10 @@ db.todos.find()  #It will show all POST Requests in Collection
 ```
 
 <img  width="650"  src="db.png" alt="Material Bread logo" >
+
+## Systemd setup
+
+`Work in Progress`
 
 ### Installing Go on `Centos7`
 
