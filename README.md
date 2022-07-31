@@ -95,7 +95,34 @@ db.todos.find()  #It will show all POST Requests in Collection
 
 <img  width="650"  src="db.png" alt="Material Bread logo" >
 
-## Ansible Playbooks
+## Configuring App in Systemd
+
+We will create service in systemd for this application by creating _animal.service_ in `/etc/systemd/system`
+
+```
+[Unit]
+Description=animal
+[Service]
+User=vagrant
+Group=vagrant
+Type=simple
+WorkingDirectory=/tmp/app/
+ExecStart=/tmp/app/flash.sh
+EnvironmentFile=/tmp/app/animal.env
+Restart=always
+RestartSec=5s
+[Install]
+WantedBy=multi-user.target
+```
+
+Reload Systemd and start App
+
+```
+systemctl daemon-reload
+systemctl start animal
+```
+
+# Ansible Playbooks
 
 There are 2 playbooks for recreating most of the manual steps above:
 
