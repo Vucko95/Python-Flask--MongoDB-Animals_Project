@@ -10,5 +10,18 @@
         state: latest
     - name: Python Libraries
       shell: sudo pip3 install -r /tmp/app/requirements.txt
-      register: out
-    - debug: var=out.stdout_lines
+    - name: Export Flask Variables 
+      shell: "{{ item }}"
+      args:
+        chdir: /tmp/app/
+      with_items:
+      - "export FLASK_APP=app"
+      - "export FLASK_ENV=development"
+    # - name: Run Flask App
+    #   shell: flask run --host=0.0.0.0 -p 5002
+    #   become_user: vagrant
+    #   args:
+    #     chdir: /tmp/app/
+    #   register: out
+    # - debug: 
+    #     msg: "{{ out }}"     

@@ -76,7 +76,7 @@ $env:FLASK_ENV = "development"
 Run the APP
 
 ```
-flask run
+flask run --host=192.168.6.1 -p 5002
 ```
 
 Flask will run website at `127.0.0.1:5000`, from here user can submit data to MongoDB via Post requests.
@@ -89,28 +89,17 @@ To login to MongoDB, type `mongo`, in this example `security Auth` is not includ
 
 ```
 show dbs         #Shows all Collections
-use use animal_db     #Switches to use animal_db collection
+use animal_db     #Switches to use animal_db collection
 db.todos.find()  #It will show all POST Requests in Collection
 ```
 
 <img  width="650"  src="db.png" alt="Material Bread logo" >
 
-## Systemd setup
+## Ansible Playbooks
+
+There are 2 playbooks for recreating most of the manual steps above:
+
+- database.yaml
+- app.yaml
 
 `Work in Progress`
-
-### Installing Go on `Centos7`
-
-```
-wget https://dl.google.com/go/go1.13.linux-amd64.tar.gz
-tar -C /usr/local -xvzf go1.13.linux-amd64.tar.gz
-```
-
-After installation we need to setup PATH of [Go](https://computingforgeeks.com/install-go-golang-on-centos-rhel-linux/) installation Directory
-
-```
-sudo echo "export PATH=$PATH:/usr/local/go/bin" >> /home/vagrant/.bash_profile
-source ~/.bash_profile
-```
-
-_To be continued...._
