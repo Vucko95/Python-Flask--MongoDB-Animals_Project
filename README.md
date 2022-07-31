@@ -2,7 +2,7 @@
 
 # Ansible Full Stack App Deployment
 
-  <img width="900" height="200" src="banner.png" alt="Material Bread logo" align="center">
+  <img width="900" height="200" src="banner2.png" alt="Material Bread logo" align="center">
 
 </p>
 
